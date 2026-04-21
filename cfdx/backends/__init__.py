@@ -23,9 +23,17 @@ def _get_int(name: str, default: int) -> int:
 def build_backend(kind: Optional[str] = None) -> LLMBackend:
     kind = (kind or os.environ.get("CFDX_BACKEND", "vllm")).strip().lower()
 
+    # top_p default differs by backend: most newer hosted OpenAI models
+    # (e.g. GPT-5) reject top_p, so omit it unless the user sets TOP_P.
+    if kind == "vllm":
+        top_p_default: Optional[float] = _get_float("TOP_P", 0.95)
+    else:
+        top_p_env = os.environ.get("TOP_P", "").strip()
+        top_p_default = float(top_p_env) if top_p_env else None
+
     params = GenParams(
         temperature=_get_float("TEMPERATURE", 0.8 if kind == "vllm" else 1.0),
-        top_p=(_get_float("TOP_P", 0.95) if kind == "vllm" else None),
+        top_p=top_p_default,
         max_new_tokens=_get_int("MAX_NEW_TOKENS", 32768),
         max_top_logprobs=_get_int("MAX_TOP_LOGPROBS", 5),
     )
