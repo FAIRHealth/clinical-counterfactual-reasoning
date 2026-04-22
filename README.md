@@ -104,7 +104,7 @@ Example:
 export TEMPERATURE=0.6
 export TOP_P=0.9            # for vLLM, or older OpenAI/Azure deployments
 export MAX_NEW_TOKENS=16384
-python run_debate.py -i your_data/cases.csv -o out.json
+python run.py -i your_data/cases.csv -o out.json
 ```
 
 ---
