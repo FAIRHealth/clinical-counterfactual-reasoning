@@ -252,6 +252,7 @@ async def specialist_round_with_counterfactual(
     round_idx: int,
     summary_context: str,
     top_ddx_guidance: Optional[List[Dict[str, str]]] = None,
+    incoming_questions_for_role: Optional[List[str]] = None,
     peers_latest_stances: Optional[Dict[str, str]] = None,
     previous_round_stance: Optional[str] = None,
     previous_round_diagnosis_prob: Optional[float] = None,
