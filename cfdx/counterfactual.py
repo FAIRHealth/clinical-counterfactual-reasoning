@@ -141,8 +141,8 @@ Remember: edited_case = original case with ONLY the target spans modified. Every
         }
         for c in pool[:num_candidates]
     ]
-    if cleaned:
-        print(f"  {log_prefix} [CF FILTER] kept {len(cleaned)}/{len(edits)} candidates")
+    # if cleaned:
+    #     print(f"  {log_prefix} [CF FILTER] kept {len(cleaned)}/{len(edits)} candidates")
     return cleaned, response
 
 
