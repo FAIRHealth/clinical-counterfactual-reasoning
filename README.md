@@ -63,7 +63,7 @@ conda activate trace
    ```bash
    python -m vllm.entrypoints.openai.api_server \
        --model your-model-path \
-       --host 127.0.0.1 --port 8004 \
+       --host 127.0.0.1 --port 8006 \
        --generation-config vllm
    ```
 
