@@ -49,10 +49,6 @@ Official repo of [Improving Clinical Diagnosis with Counterfactual Multi-Agent R
 conda create -n xor python=3.9 -y
 conda activate xor
 pip install -r requirements.txt
-
-# Add this ONLY if you self-host an open-source model with vLLM
-pip install -r requirements-vllm.txt
-
 conda activate trace
 ```
 
@@ -78,16 +74,16 @@ conda activate trace
 
    ```bash
    export CFDX_BACKEND=vllm
-   export VLLM_MODEL="your model path"
-   export VLLM_BASE_URL="http://127.0.0.1:8004/v1"
+   export VLLM_MODEL=your-model-path
+   export VLLM_BASE_URL="http://127.0.0.1:8006/v1"
    ```
 
 ### Option B — OpenAI API
 
 ```bash
 export CFDX_BACKEND=openai
-export OPENAI_MODEL="gpt-5-mini"     # or gpt-5, gpt-4o, ...
-export OPENAI_API_KEY="your API key"
+export OPENAI_MODEL=gpt-5-mini     # or gpt-5, gpt-4o, ...
+export OPENAI_API_KEY=your API key
 ```
 
 ### Hyperparameters
@@ -129,7 +125,7 @@ python run.py --input your_data/cases.csv --output results/out.json
 
 # Explicit backend + only the first 10 cases
 python run.py -i data/cases.csv -o out.json \
-    --backend openai --limit 10 --max-rounds 3 --num-candidates 2
+    --backend vllm --limit 10 --max-rounds 3 --num-candidates 2
 ```
 
 ## Citation Information
