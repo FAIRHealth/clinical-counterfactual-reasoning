@@ -586,6 +586,8 @@ async def audit_round_with_counterfactual(
     summary_context: str,
     peers_latest_stances: Optional[Dict[str, str]] = None,
     previous_round_stance: Optional[str] = None,
+    incoming_questions_for_role: Optional[List[str]] = None,
+    num_candidates: int = 2,
     previous_round_diagnosis_prob: Optional[float] = None,
     assigned_specialist_roles: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
