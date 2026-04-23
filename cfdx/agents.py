@@ -255,6 +255,7 @@ async def specialist_round_with_counterfactual(
     incoming_questions_for_role: Optional[List[str]] = None,
     peers_latest_stances: Optional[Dict[str, str]] = None,
     previous_round_stance: Optional[str] = None,
+    groupthink_flag: bool = False,
     previous_round_diagnosis_prob: Optional[float] = None,
     num_candidates: int = 3,
     specialist_report: Optional[str] = None,
