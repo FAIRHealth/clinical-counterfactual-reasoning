@@ -42,7 +42,7 @@ def build_backend(kind: Optional[str] = None) -> LLMBackend:
         model = os.environ.get("VLLM_MODEL") or os.environ.get("MODEL_NAME")
         if not model:
             raise RuntimeError("VLLM_MODEL (or MODEL_NAME) must be set for vllm backend.")
-        base_url = os.environ.get("VLLM_BASE_URL", "http://127.0.0.1:8004/v1")
+        base_url = os.environ.get("VLLM_BASE_URL", "http://127.0.0.1:8006/v1")
         api_key = os.environ.get("VLLM_API_KEY", "vllm")
         return VLLMBackend(model=model, base_url=base_url, api_key=api_key, params=params)
 
