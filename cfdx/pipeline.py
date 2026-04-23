@@ -332,7 +332,7 @@ async def run_counterfactual_role_based_debate(
 
     # 6) Probability scoreboard for the judge.
     probability_scoreboard = _build_probability_scoreboard(all_round_responses)
-    print("Probability scoreboard", probability_scoreboard)
+    # print("Probability scoreboard", probability_scoreboard)
 
     # 7) Final summary + judge.
     print("Producing final summary...")
