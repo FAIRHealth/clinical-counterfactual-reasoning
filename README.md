@@ -49,7 +49,7 @@ Official repo of [Improving Clinical Diagnosis with Counterfactual Multi-Agent R
 conda create -n xor python=3.9 -y
 conda activate xor
 pip install -r requirements.txt
-conda activate trace
+conda activate xor
 ```
 
 ---
